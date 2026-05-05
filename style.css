@@ -855,10 +855,9 @@ header.sticky .nav-links a {
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 900px;
-    margin: 40px auto 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .testimonial-card {
