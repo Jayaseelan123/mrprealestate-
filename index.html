@@ -395,11 +395,20 @@
                             <input type="tel" id="wa_phone" placeholder="Enter your phone" required>
                         </div>
                         <div class="form-group">
+                            <label>Visit Plots</label>
+                            <select id="wa_plot" required style="width: 100%; padding: 15px 20px; border: 1px solid #eee; background: #fcfcfc; border-radius: 12px; font-family: inherit; font-size: 15px; color: #555; transition: all 0.4s; outline: none; cursor: pointer;">
+                                <option value="" disabled selected>Select a plot to visit</option>
+                                <option value="VVIP Farm Land Phase 1 - Salinayanapalli, Bargur">VVIP Farm Land Phase 1 – Salinayanapalli, Bargur</option>
+                                <option value="VVIP Farm Land Phase 2 - Bargur, Krishnagiri">VVIP Farm Land Phase 2 – Bargur, Krishnagiri</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Message</label>
                             <textarea rows="4" id="wa_message" placeholder="How can we help you?" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;">Schedule Site
-                            Visit & Inquire</button>
+                        <button type="submit" onclick="sendToWhatsApp(event)" class="btn" style="width: 100%; padding: 18px; background: #25D366; color: white; border-radius: 24px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; border: none; cursor: pointer; transition: all 0.3s;">
+                            <i class="fab fa-whatsapp" style="font-size: 22px;"></i> Schedule Site Visit &amp; Inquire
+                        </button>
                     </form>
                 </div>
             </div>
@@ -496,6 +505,32 @@
             const modal = document.getElementById('imageGalleryModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name    = document.getElementById('wa_name').value.trim();
+            const email   = document.getElementById('wa_email').value.trim();
+            const phone   = document.getElementById('wa_phone').value.trim();
+            const plot    = document.getElementById('wa_plot').value.trim();
+            const message = document.getElementById('wa_message').value.trim();
+
+            if (!name || !email || !phone || !plot || !message) {
+                alert('Please fill in all fields before submitting.');
+                return;
+            }
+
+            const text =
+                `Hello MRP Real Estate,%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Plot to Visit:* ${plot}%0A` +
+                `*Message:* ${message}%0A%0A` +
+                `Please schedule a site visit for me. Thank you!`;
+
+            const whatsappNumber = '918838786633';
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
         }
     </script>
 </body>
