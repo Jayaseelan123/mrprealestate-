@@ -266,12 +266,13 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: clamp(8px, 1.5vw, 15px);
     text-decoration: none;
+    transition: var(--transition);
 }
 
 .logo img {
-    height: 85px;
+    height: clamp(50px, 8vw, 85px);
     width: auto;
     filter: brightness(0) invert(1);
     transition: var(--transition);
@@ -279,51 +280,29 @@ nav {
 }
 
 header.sticky .logo img {
-    height: 60px;
+    height: clamp(40px, 6vw, 60px);
     filter: none;
 }
 
 .logo span {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    font-size: 24px;
+    font-size: clamp(16px, 2.5vw, 24px);
     letter-spacing: 1px;
     color: var(--white);
     transition: var(--transition);
     line-height: 1;
     white-space: nowrap;
+    text-transform: uppercase;
 }
 
 header.sticky .logo span {
     color: var(--secondary-color);
-    font-size: 20px;
 }
 
-@media (max-width: 992px) {
-    .logo img {
-        height: 65px;
-    }
-
+@media (max-width: 600px) {
     .logo span {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo img {
-        height: 50px;
-    }
-
-    .logo span {
-        font-size: 18px;
-        gap: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo span {
-        display: none;
-        /* Hide text on very small screens to save space */
+        display: none; /* Hide text on small mobiles for a cleaner nav */
     }
 }
 
