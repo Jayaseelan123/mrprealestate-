@@ -336,6 +336,9 @@
                     </div>
                 </div>
             </div>
+            <div style="text-align: center; margin-top: 50px;" data-aos="fade-up">
+                <a href="#" onclick="openInquiryModal(event)" class="btn btn-primary" style="padding: 16px 40px; border-radius: 30px; font-weight: 700;">Fill Inquiry Form</a>
+            </div>
         </div>
     </section>
 
@@ -515,6 +518,53 @@
         </div>
     </div>
 
+    <!-- Inquiry Form Modal -->
+    <div id="inquiryModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; width: 100%; max-width: 500px; border-radius: 30px; position: relative; padding: 40px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); animation: slideUp 0.4s ease-out;">
+            <span onclick="closeInquiryModal()"
+                style="position: absolute; top: 20px; right: 25px; color: #333; font-size: 30px; cursor: pointer; transition: 0.3s;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#333'">&times;</span>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: var(--text-main); font-size: 24px; margin-bottom: 10px;">Quick Inquiry</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Fill out the form below and we'll get back to you shortly.</p>
+            </div>
+
+            <form onsubmit="sendInquiryToWhatsApp(event)">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" id="modal_name" placeholder="Full Name" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="email" id="modal_email" placeholder="Email Address" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="tel" id="modal_phone" placeholder="Phone Number" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <select id="modal_plot" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9; color: #666;">
+                        <option value="" disabled selected>Select Plot of Interest</option>
+                        <option value="VVIP Farm Land Phase 1">VVIP Farm Land Phase 1</option>
+                        <option value="VVIP Farm Land Phase 2">VVIP Farm Land Phase 2</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <textarea id="modal_message" rows="3" placeholder="How can we help you?" required style="width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9; resize: none;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; border-radius: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
     <script>
         function openGalleryModal(e) {
             if (e) e.preventDefault();
@@ -527,6 +577,45 @@
             const modal = document.getElementById('imageGalleryModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        function openInquiryModal(e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('inquiryModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquiryModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function sendInquiryToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('modal_name').value.trim();
+            const email = document.getElementById('modal_email').value.trim();
+            const phone = document.getElementById('modal_phone').value.trim();
+            const plot = document.getElementById('modal_plot').value.trim();
+            const message = document.getElementById('modal_message').value.trim();
+
+            if (!name || !email || !phone || !plot || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const text =
+                `*New Inquiry from MRP Real Estate*%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Plot:* ${plot}%0A` +
+                `*Message:* ${message}`;
+
+            const whatsappNumber = '918838786633';
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+            closeInquiryModal();
         }
 
         function sendToWhatsApp(e) {
