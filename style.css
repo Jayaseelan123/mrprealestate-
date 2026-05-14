@@ -266,23 +266,62 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    text-decoration: none;
 }
 
 .logo img {
-    height: 90px;
-    /* Increased from 60px */
+    height: 85px;
     width: auto;
     filter: brightness(0) invert(1);
     transition: var(--transition);
+    object-fit: contain;
 }
 
 header.sticky .logo img {
+    height: 60px;
     filter: none;
 }
 
 .logo span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: var(--white);
+    transition: var(--transition);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+header.sticky .logo span {
     color: var(--secondary-color);
+    font-size: 20px;
+}
+
+@media (max-width: 992px) {
+    .logo img {
+        height: 65px;
+    }
+    .logo span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 50px;
+    }
+    .logo span {
+        font-size: 18px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        display: none; /* Hide text on very small screens to save space */
+    }
 }
 
 .nav-links {
