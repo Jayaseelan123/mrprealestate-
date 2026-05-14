@@ -303,6 +303,7 @@ header.sticky .logo span {
     .logo img {
         height: 65px;
     }
+
     .logo span {
         font-size: 20px;
     }
@@ -312,6 +313,7 @@ header.sticky .logo span {
     .logo img {
         height: 50px;
     }
+
     .logo span {
         font-size: 18px;
         gap: 8px;
@@ -320,7 +322,8 @@ header.sticky .logo span {
 
 @media (max-width: 480px) {
     .logo span {
-        display: none; /* Hide text on very small screens to save space */
+        display: none;
+        /* Hide text on very small screens to save space */
     }
 }
 
@@ -1018,7 +1021,7 @@ header.sticky .nav-links a {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .testimonial-card {
         height: 320px;
     }
@@ -1295,5 +1298,23 @@ footer {
 
     .section-title h2 {
         font-size: 1.8rem;
+    }
+}
+
+/* Dynamic logo scaling for Sticky Header */
+header.sticky .logo img {
+    height: 60px;
+}
+
+header.sticky .logo span {
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+
+/* Responsive adjustments for Mobile */
+@media (max-width: 480px) {
+    .logo span {
+        display: none;
+        /* Focus on logo icon for mobile efficiency */
     }
 }
