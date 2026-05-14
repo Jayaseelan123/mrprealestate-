@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MRP Real Estate | Find Your Dream Property Today</title>
     <meta name="description"
-        content="MRP Real Estate offers trusted real estate solutions. Buy, rent, or invest in premium residential and commercial properties in India.">
+        content="MRP Real Estate offers trusted real estate solutions. Buy, rent, or invest in premium residential and commercial properties in krishnagiri.">
     <meta name="keywords"
-        content="Real Estate in India, Buy Property Online, Best Real Estate Company, Property Investment, MRP Real Estate">
+        content="Real Estate in krishnagiri, Buy Property Online, Best Real Estate Company, Property Investment, MRP Real Estate">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,8 @@
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
                 <h1>Own the Future with Premium Strategic Land</h1>
-                <p>Curated residential, commercial, and agricultural plots in India's highest-growth corridors. Your
+                <p>Curated residential, commercial, and agricultural plots in krishnagiri's highest-growth corridors.
+                    Your
                     legacy starts with the right piece of earth.</p>
                 <div class="hero-btns">
                     <a href="#properties" class="btn btn-secondary">Explore Land</a>
@@ -87,7 +88,7 @@
                             ARE</span>
                         <h2>Pioneers in Strategic Land Acquisition</h2>
                     </div>
-                    <p>MRP Real Estate is India's premier land acquisition and consultancy firm, specializing in
+                    <p>MRP Real Estate is krishnagiri's premier land acquisition and consultancy firm, specializing in
                         high-yield residential plots, strategic commercial hubs, and expansive agricultural estates.</p>
                     <p>With a legacy spanning over two decades, we have facilitated the ownership of over 50,000 acres
                         for visionary investors. Our mission is to provide transparent, legally-vetted, and high-growth
@@ -436,17 +437,21 @@
                         </div>
                         <div class="form-group">
                             <label>Visit Plots</label>
-                            <select id="wa_plot" required style="width: 100%; padding: 15px 20px; border: 1px solid #eee; background: #fcfcfc; border-radius: 12px; font-family: inherit; font-size: 15px; color: #555; transition: all 0.4s; outline: none; cursor: pointer;">
+                            <select id="wa_plot" required
+                                style="width: 100%; padding: 15px 20px; border: 1px solid #eee; background: #fcfcfc; border-radius: 12px; font-family: inherit; font-size: 15px; color: #555; transition: all 0.4s; outline: none; cursor: pointer;">
                                 <option value="" disabled selected>Select a plot to visit</option>
-                                <option value="VVIP Farm Land Phase 1 - Salinayanapalli, Bargur">VVIP Farm Land Phase 1 – Salinayanapalli, Bargur</option>
-                                <option value="VVIP Farm Land Phase 2 - Bargur, Krishnagiri">VVIP Farm Land Phase 2 – Bargur, Krishnagiri</option>
+                                <option value="VVIP Farm Land Phase 1 - Salinayanapalli, Bargur">VVIP Farm Land Phase 1
+                                    – Salinayanapalli, Bargur</option>
+                                <option value="VVIP Farm Land Phase 2 - Bargur, Krishnagiri">VVIP Farm Land Phase 2 –
+                                    Bargur, Krishnagiri</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Message</label>
                             <textarea rows="4" id="wa_message" placeholder="How can we help you?" required></textarea>
                         </div>
-                        <button type="submit" onclick="sendToWhatsApp(event)" class="btn" style="width: 100%; padding: 18px; background: #25D366; color: white; border-radius: 24px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; border: none; cursor: pointer; transition: all 0.3s;">
+                        <button type="submit" onclick="sendToWhatsApp(event)" class="btn"
+                            style="width: 100%; padding: 18px; background: #25D366; color: white; border-radius: 24px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; border: none; cursor: pointer; transition: all 0.3s;">
                             <i class="fab fa-whatsapp" style="font-size: 22px;"></i> Schedule Site Visit &amp; Inquire
                         </button>
                     </form>
@@ -464,7 +469,8 @@
                         <img src="assets/logo.png" alt="MRP Real Estate"
                             style="height: 110px; filter: brightness(0) invert(1);">
                     </a>
-                    <p>India's leading land consultancy firm specializing in strategic plot acquisition, topographical
+                    <p>krishnagiri's leading land consultancy firm specializing in strategic plot acquisition,
+                        topographical
                         surveying, and legal documentation. We turn raw land into high-yield assets for institutional
                         and private investors.</p>
                     <div class="social-links">
@@ -549,10 +555,10 @@
 
         function sendToWhatsApp(e) {
             e.preventDefault();
-            const name    = document.getElementById('wa_name').value.trim();
-            const email   = document.getElementById('wa_email').value.trim();
-            const phone   = document.getElementById('wa_phone').value.trim();
-            const plot    = document.getElementById('wa_plot').value.trim();
+            const name = document.getElementById('wa_name').value.trim();
+            const email = document.getElementById('wa_email').value.trim();
+            const phone = document.getElementById('wa_phone').value.trim();
+            const plot = document.getElementById('wa_plot').value.trim();
             const message = document.getElementById('wa_message').value.trim();
 
             if (!name || !email || !phone || !plot || !message) {
